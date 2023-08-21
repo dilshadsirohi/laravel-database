@@ -18,9 +18,10 @@ class TodoController extends Controller
         $todo->save();
         
         $allData = Todo::all();
-        dd($allData);
+        // dd($allData);
 
-        return redirect('/dashboard',['allData',$allData])->with('success', 'Form submitted successfully!');
+        // return redirect('/dashboard',['allData',$allData])->with('success', 'Form submitted successfully!');
+        return view('/dashboard',['allData'=>$allData]);
     }
    
 

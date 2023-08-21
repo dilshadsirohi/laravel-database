@@ -31,10 +31,10 @@
                 
             </div>
         </div>
-     @foreach ($allData as $data)
-     {{$data->title}}
-         
-     @endforeach
+        @foreach ($allData as $data)
+        {{$data->title}}
+            
+        @endforeach
         
     </div>
 </x-app-layout>
