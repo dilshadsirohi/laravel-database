@@ -39,7 +39,7 @@
                       <button type="submit">Add To List</button>
     
                     </form>
-                   
+                    @endif
              
 
                 <table class="table table-bordered">
@@ -65,7 +65,7 @@
                     </tbody>
             
                   </table>
-                  @endif
+                 
             </div>
         </div>
        
