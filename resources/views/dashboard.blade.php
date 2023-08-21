@@ -13,5 +13,28 @@
                 </div>
             </div>
         </div>
+        
+    </div>
+
+    <div >
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            
+                <div class="p-6 text-gray-900">
+                    <p>To-do List</p>
+                <form action="/todo" method="post">
+                @csrf
+                <input type="text" name="title">
+                  <input type="text" name="description">
+                  <button type="submit">Add To List</button>
+
+                </form>
+                
+            </div>
+        </div>
+     @foreach ($allData as $data)
+     {{$data->title}}
+         
+     @endforeach
+        
     </div>
 </x-app-layout>
