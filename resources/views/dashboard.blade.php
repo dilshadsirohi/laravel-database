@@ -32,7 +32,7 @@
             </div>
         </div>
         @foreach ($allData as $data)
-        {{$data->title}}
+     {{$data->title}}   
             
         @endforeach
         

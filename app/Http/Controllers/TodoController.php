@@ -23,7 +23,12 @@ class TodoController extends Controller
         // return redirect('/dashboard',['allData',$allData])->with('success', 'Form submitted successfully!');
         return view('/dashboard',['allData'=>$allData]);
     }
+   public function showDashboard(Request $request)
+   {
+     $allData = Todo::all();
+    return view('/dashboard',['allData',$allData]);
    
+    }
 
     
 }
