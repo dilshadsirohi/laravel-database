@@ -29,14 +29,32 @@
                   <button type="submit">Add To List</button>
 
                 </form>
-                
+                <table class="table table-bordered">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Time</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                @foreach ($allData as $data)
+                <tr>
+                <td> {{$loop->index+1}}</td>
+                <td>{{$data->title}}</td>
+                <td>{{$data->description}}</td>
+                <td>{{$data->created_at}}</td>
+                <td><a href='todo/{{ $data->id }}'>Delete</a></td>
+                </tr>   
+                @endforeach
+                    </tbody>
+            
+                  </table>
             </div>
         </div>
-        @foreach ($allData as $data)
-        
-     {{$data->title}}   <a href='todo/{{ $data->id }}'>Delete</a>
-            
-        @endforeach
+       
   
     </div>
 </x-app-layout>
