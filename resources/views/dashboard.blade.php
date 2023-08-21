@@ -23,6 +23,7 @@
                     <p>To-do List</p>
                 <form action="/dashboard" method="post">
                 @csrf
+               
                 <input type="text" name="title" placeholder="title">
                   <input type="text" name="description" placeholder="description">
                   <button type="submit">Add To List</button>
@@ -32,9 +33,10 @@
             </div>
         </div>
         @foreach ($allData as $data)
+        
      {{$data->title}}   <a href='todo/{{ $data->id }}'>Delete</a>
             
         @endforeach
-        
+  
     </div>
 </x-app-layout>

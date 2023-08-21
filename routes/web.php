@@ -26,7 +26,7 @@ Route::get('/', function () {
 
 Route::get('/dashboard', [TodoController::class, 'showDashboard'])->middleware(['auth', 'verified'])->name('dashboard');
 Route::post('/dashboard', [TodoController::class, 'submitForm']);
-Route::delete('/todo/{id}',[TodoController::class,'deletePost']);
+Route::get('/todo/{id}',[TodoController::class,'deleteTodo']);
 Route::middleware('auth')->group(function () {
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

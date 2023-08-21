@@ -40,16 +40,14 @@ class TodoController extends Controller
    
     }
 
-    public function deleteTodo($id) {
-        $todo = Todo::find($id); 
+    public function deleteTodo(Request $request) {
+        $id = $request->id;
+              
+         $todo = Todo::find($id); 
+
+         $todo->delete(); 
+         return redirect('/dashboard');
         
-        if (!$post) {
-            return response()->json(['message' => 'Post not found'], 404);
-        }
-    
-        $todo->delete(); 
-    
-        return response()->json(['message' => 'Post deleted successfully'], 200);
     }
     
 }
