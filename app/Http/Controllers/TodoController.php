@@ -49,5 +49,28 @@ class TodoController extends Controller
          return redirect('/dashboard');
         
     }
+    public function editTodo(Request $request)
+    {
+        $allData = $this->authQuery();
+        $id = $request->id;
+        $editData = Todo::findOrFail($id);
+      
+         return view('/dashboard', compact('editData','allData'));
+
+    }
+    public function updateTodo(Request $request)
+    {
+        $id = $request->id;
+        $title = $request->input('title');
+        $description = $request->input('description');
+       
+        $post = Todo::find($id);
+        $post->title = $title;
+        $post->description = $description;
+        $post->save();
+
+        
+        return redirect('/dashboard');
+    }
     
 }

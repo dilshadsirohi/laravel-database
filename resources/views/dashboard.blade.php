@@ -21,14 +21,27 @@
             
                 <div class="p-6 text-gray-900">
                     <p>To-do List</p>
-                <form action="/dashboard" method="post">
+                @if(isset($editData))
+                <form action="/updatetodo/{{$editData->id}}" method="post">
                 @csrf
                
-                <input type="text" name="title" placeholder="title">
-                  <input type="text" name="description" placeholder="description">
-                  <button type="submit">Add To List</button>
+                <input type="text" name="title" placeholder="title" value="{{$editData->title}}">
+                  <input type="text" name="description" placeholder="description" value="{{$editData->description}}">
+                  <button type="submit">Update</button>
 
                 </form>
+                @else
+                <form action="/dashboard" method="post">
+                    @csrf
+                   
+                    <input type="text" name="title" placeholder="title">
+                      <input type="text" name="description" placeholder="description">
+                      <button type="submit">Add To List</button>
+    
+                    </form>
+                   
+             
+
                 <table class="table table-bordered">
                     <thead class="thead-dark">
                         <tr>
@@ -46,12 +59,13 @@
                 <td>{{$data->title}}</td>
                 <td>{{$data->description}}</td>
                 <td>{{$data->created_at}}</td>
-                <td><a href='todo/{{ $data->id }}'>Delete</a></td>
+                <td><a href='dashboard-edit/{{ $data->id }}'>Edit</a>|<a href='dashboard/{{ $data->id }}'>Delete</a></td>
                 </tr>   
                 @endforeach
                     </tbody>
             
                   </table>
+                  @endif
             </div>
         </div>
        
