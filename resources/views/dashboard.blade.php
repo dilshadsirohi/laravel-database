@@ -21,10 +21,10 @@
             
                 <div class="p-6 text-gray-900">
                     <p>To-do List</p>
-                <form action="/todo" method="post">
+                <form action="/dashboard" method="post">
                 @csrf
-                <input type="text" name="title">
-                  <input type="text" name="description">
+                <input type="text" name="title" placeholder="title">
+                  <input type="text" name="description" placeholder="description">
                   <button type="submit">Add To List</button>
 
                 </form>
@@ -32,7 +32,7 @@
             </div>
         </div>
         @foreach ($allData as $data)
-     {{$data->title}}   
+     {{$data->title}}   <a href='todo/{{ $data->id }}'>Delete</a>
             
         @endforeach
         

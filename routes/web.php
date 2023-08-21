@@ -25,13 +25,16 @@ Route::get('/', function () {
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/dashboard', [TodoController::class, 'showDashboard'])->middleware(['auth', 'verified'])->name('dashboard');
-
+Route::post('/dashboard', [TodoController::class, 'submitForm']);
+Route::delete('/todo/{id}',[TodoController::class,'deletePost']);
 Route::middleware('auth')->group(function () {
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+
 require __DIR__.'/auth.php';
-Route::post('/dashboard', [TodoController::class, 'submitForm'])->middleware(['auth', 'verified'])->name('dashboard');
+
 
