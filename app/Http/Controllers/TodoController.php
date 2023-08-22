@@ -9,7 +9,9 @@ class TodoController extends Controller
     public function authQuery()
     {
         $userId = auth()->user()->id;
+       
         $allData = Todo::where('user_id',$userId)->get();
+     
         return $allData;
     }
 
@@ -52,6 +54,7 @@ class TodoController extends Controller
     public function editTodo(Request $request)
     {
         $allData = $this->authQuery();
+       
         $id = $request->id;
         $editData = Todo::findOrFail($id);
       
