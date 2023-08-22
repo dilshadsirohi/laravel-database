@@ -59,7 +59,9 @@
                 <td>{{$data->title}}</td>
                 <td>{{$data->description}}</td>
                 <td>{{$data->created_at}}</td>
-                <td><a href='dashboard-edit/{{ $data->id }}'>Edit</a>|<a href='dashboard/{{ $data->id }}'>Delete</a></td>
+                <td><a href='dashboard-edit/{{ $data->id }}'>Edit</a>|
+                <a class="btn btn-danger" onclick="return confirm('Are you sure?')" href="dashboard/{{ $data->id }}">Delete<i class="fa fa-trash"></i></a>
+                </td>
                 </tr>   
                 @endforeach
                     </tbody>
